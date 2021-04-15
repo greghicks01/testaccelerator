@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>au.com.deloitte</groupId>
+    <artifactId>Tava</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+
+    <properties>
+        <target.browser>Chrome</target.browser>
+        <browser.version></browser.version>
+        <browser.platform></browser.platform>
+        <driver.version></driver.version>
+        <grid.url></grid.url>
+    </properties>
+
+    <!-- profiles -->
+    <profiles>
+        <profile>
+            <id>test.environment.env0</id>
+            <properties>
+                <test.environment>http://www.env0.com</test.environment>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>test.environment.env1</id>
+            <properties>
+                <test.environment>http://www.env1.com</test.environment>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>browser - chrome</id>
+            <properties>
+                <target.browser>Chrome</target.browser>
+                <browser.version></browser.version>
+                <browser.platform></browser.platform>
+                <driver.version></driver.version>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>browser - internet explorer</id>
+            <properties>
+                <target.browser>Internet Explorer</target.browser>
+                <browser.driver.version></browser.driver.version>
+                <target.browser.platform></target.browser.platform>
+                <browser.driver.version></browser.driver.version>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>browser - firefox</id>
+            <properties>
+                <target.browser>Firefox</target.browser>
+                <target.browser.version></target.browser.version>
+                <target.browser.platform></target.browser.platform>
+                <browser.driver.version></browser.driver.version>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>grid</id>
+            <properties>
+                <grid.url></grid.url>
+            </properties>
+        </profile>
+
+    </profiles>
+
+    <!-- profiles -->
+
+    <build>
+
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20</version>
+
+                <configuration>
+                    <systemProperties>
+                        <target.browser>${target.browser}</target.browser>
+                        <target.browser.version>${browser.version}</target.browser.version>
+                        <target.browser.platform>${browser.platform}</target.browser.platform>
+                        <selenium.grid.url>${grid.url}</selenium.grid.url>
+                        <browser.driver.version>${driver.version}</browser.driver.version>
+                    </systemProperties>
+                </configuration>
+
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+    <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.11</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.5.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+            <version>3.5.3</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>5.0.4</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>23.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>3.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot -->
+        <dependency>
+            <groupId>ru.yandex.qatools.ashot</groupId>
+            <artifactId>ashot</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3 -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>1.11.255</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.docker-java</groupId>
+            <artifactId>docker-java</artifactId>
+            <!-- use latest version https://github.com/docker-java/docker-java/releases -->
+            <version>3.0.14</version>
+        </dependency>
+
+
+    </dependencies>
+
+</project>

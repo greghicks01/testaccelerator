@@ -1,0 +1,7 @@
+/.idea/
+/target/*
+/test-output/*
+.txt
+/IntellJ.iml
+scratch
+*.iml
