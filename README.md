@@ -1,7 +1,20 @@
-# testaccelerator
-This project became commercially viable test accelerator framework.
+# test accelerator
+This project became commercially viable test accelerator framework reviewed and accepted for use.
 
-To create this project I had to learn:
+## Motivaton
+It was not making sense to replicate a significant code base on every commercial engagement.
+
+## Configuration
+The project consisted of the core libraries needed to be reused on many clients using:
+* testNg
+* Cucumber
+* Selenium
+* Rest and SOAP api
+* File manipulation (find file, wait for file to be consumed, scan file for value, update file)
+* testng and cucumber hooks
+
+## What I had to Learn to create this
+To create this project I had to learn java:
 * Annotations
 * Reflection
 * TestNG runner capabilities
